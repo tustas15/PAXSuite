@@ -25,6 +25,7 @@ use CodeIgniter\HotReloader\HotReloader;
 
 Events::on('pre_system', static function (): void {
     if (ENVIRONMENT !== 'testing') {
+        helper(['auth', 'setting']);
         if (ini_get('zlib.output_compression')) {
             throw FrameworkException::forEnabledZlibOutputCompression();
         }

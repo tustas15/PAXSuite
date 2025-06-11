@@ -3,6 +3,7 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseService;
+use CodeIgniter\Shield\Config\Auth as AuthConfig;
 
 /**
  * Services Configuration file.
@@ -29,4 +30,15 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+    public static function auth(AuthConfig $config = null, bool $getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('auth', $config);
+        }
+
+        $config = $config ?? config('Auth');
+        
+        // SOLUCIÓN: Usar la clase correcta de Shield
+        return new \CodeIgniter\Shield\Auth($config);
+    }
 }

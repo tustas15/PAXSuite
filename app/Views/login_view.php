@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,14 +34,18 @@
         .bg-franciscan-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a78a4d' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
+
         .cross-icon {
             position: relative;
         }
-        .cross-icon:before, .cross-icon:after {
+
+        .cross-icon:before,
+        .cross-icon:after {
             content: "";
             position: absolute;
             background-color: #8B5A2B;
         }
+
         .cross-icon:before {
             width: 24px;
             height: 4px;
@@ -48,6 +53,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
         .cross-icon:after {
             width: 4px;
             height: 24px;
@@ -57,6 +63,7 @@
         }
     </style>
 </head>
+
 <body class="bg-franciscan-50 min-h-screen flex items-center justify-center bg-franciscan-pattern">
     <div class="w-full max-w-md px-6 py-12">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -71,9 +78,9 @@
                 </h1>
                 <p class="text-franciscan-200 mt-1 text-sm">"Servir con humildad y amor"</p>
             </div>
-            
+
             <!-- Formulario de login -->
-            <form class="px-8 py-8">
+            <form class="px-8 py-8" action="<?= base_url('login') ?>" method="post">
                 <div class="mb-6">
                     <label for="email" class="block text-franciscan-700 text-sm font-medium mb-2">
                         <i class="fas fa-user mr-2"></i>Usuario
@@ -85,7 +92,7 @@
                         <input type="email" id="email" class="w-full pl-10 pr-3 py-3 border border-franciscan-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-franciscan-500 focus:border-transparent" placeholder="usuario@dominio.com" required>
                     </div>
                 </div>
-                
+
                 <div class="mb-6">
                     <label for="password" class="block text-franciscan-700 text-sm font-medium mb-2">
                         <i class="fas fa-lock mr-2"></i>Contraseña
@@ -100,7 +107,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <input id="remember-me" type="checkbox" class="h-4 w-4 text-franciscan-600 focus:ring-franciscan-500 border-franciscan-300 rounded">
@@ -114,21 +121,21 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <button type="submit" class="w-full bg-franciscan-600 hover:bg-franciscan-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-franciscan-500 focus:ring-offset-2 transition duration-150 ease-in-out">
                     <i class="fas fa-sign-in-alt mr-2"></i> Ingresar
                 </button>
-                
+
                 <div class="mt-6 text-center">
                     <p class="text-sm text-franciscan-600">
-                        ¿No tienes una cuenta? 
+                        ¿No tienes una cuenta?
                         <a href="#" class="font-medium text-franciscan-700 hover:text-franciscan-600">
                             Solicitar acceso
                         </a>
                     </p>
                 </div>
             </form>
-            
+
             <!-- Pie de página -->
             <div class="bg-franciscan-50 px-8 py-4 text-center">
                 <p class="text-xs text-franciscan-600">
@@ -136,7 +143,7 @@
                 </p>
             </div>
         </div>
-        
+
         <!-- Versículo bíblico -->
         <div class="mt-6 text-center">
             <blockquote class="text-franciscan-700 italic">
@@ -151,7 +158,7 @@
         document.querySelector('.fa-eye').addEventListener('click', function() {
             const passwordInput = document.getElementById('password');
             const icon = this;
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 icon.classList.replace('fa-eye', 'fa-eye-slash');
@@ -160,18 +167,19 @@
                 icon.classList.replace('fa-eye-slash', 'fa-eye');
             }
         });
-        
+
         // Validación básica del formulario
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
-            if(email && password) {
+
+            if (email && password) {
                 // Aquí iría la lógica de autenticación
                 alert('Bienvenido a la Comunidad San Francisco de Otavalo');
             }
         });
     </script>
 </body>
+
 </html>
